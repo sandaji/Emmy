@@ -29,7 +29,7 @@ const Singup = () => {
     e.preventDefault();
 
     axios
-      .post("/user", { name, email, password, avatar })
+      .post("api/user", { name, email, password, avatar })
       .then((res) => {
         if (res && res.data) {
           toast.success(res.data.message);

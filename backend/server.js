@@ -6,7 +6,6 @@ import cookieParser from "cookie-parser";
 import bodyParser from "body-parser";
 import cors from "cors";
 import dotenv from "dotenv";
-import user from "./controller/user.js";
 import shop from "./controller/shop.js";
 import product from "./controller/product.js";
 import event from "./controller/event.js";
@@ -16,17 +15,21 @@ import order from "./controller/order.js";
 import conversation from "./controller/conversation.js";
 import message from "./controller/message.js";
 import withdraw from "./controller/withdraw.js";
+import userRoute from "./routes/userRoute.js";
+import errorHandler from "./middleware/error.js";
 
 const app = express();
 dotenv.config();
 
-app.use(
-  cors({
-    origin: ["http://localhost:5173"],
-    credentials: true,
-  })
-);
+// Enable CORS
+const corsOptions = {
+  origin: "http://localhost:5173", 
+  credentials: true,
+};
 
+app.use(cors(corsOptions));
+
+app.use(errorHandler);
 app.use(express.json());
 app.use(cookieParser());
 app.use("/test", (req, res) => {
@@ -41,7 +44,7 @@ process.on("uncaughtException", (err) => {
   console.log(`shutting down the server for handling uncaught exception`);
 });
 
-app.use("/api/user", user);
+app.use("/api/user", userRoute);
 app.use("/api/conversation", conversation);
 app.use("/api/message", message);
 app.use("/api/order", order);

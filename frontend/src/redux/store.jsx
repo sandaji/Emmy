@@ -1,22 +1,21 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { userReducer } from "./reducers/user";
-import { sellerReducer } from "./reducers/seller";
-import { productReducer } from "./reducers/product";
-import { eventReducer } from "./reducers/event";
-import { cartReducer } from "./reducers/cart";
-import { wishlistReducer } from "./reducers/wishlist";
-import { orderReducer } from "./reducers/order";
-
+import userSlice from "./reducers/userSlice"; // Remove the destructuring
+import sellerSlice from "./reducers/sellerSlice"; // Remove the destructuring
+import productSlice from "./reducers/productSlice"; // Remove the destructuring
+import eventSlice from "./reducers/eventSlice"; // Remove the destructuring
+import cartSlice from "./reducers/cartSlice"; // Remove the destructuring
+import wishlistSlice from "./reducers/wishlistSlice"; // Remove the destructuring
+import orderSlice from "./reducers/orderSlice"; // Remove the destructuring
 
 const Store = configureStore({
   reducer: {
-    user: userReducer,
-    seller: sellerReducer,
-    products: productReducer,
-    events: eventReducer,
-    cart: cartReducer,
-    wishlist: wishlistReducer,
-    order: orderReducer,
+    user: userSlice,
+    seller: sellerSlice,
+    products: productSlice,
+    events: eventSlice,
+    cart: cartSlice,
+    wishlist: wishlistSlice,
+    order: orderSlice,
   },
 });
 

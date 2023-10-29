@@ -40,7 +40,7 @@ router.post(
 
       const activationToken = createActivationToken(seller);
 
-      const activationUrl = `https://eshop-tutorial-pyri.vercel.app/seller/activation/${activationToken}`;
+      const activationUrl = `http://localhost:5173/seller/activation/${activationToken}`;
 
       try {
         await sendMail({
@@ -50,7 +50,7 @@ router.post(
         });
         res.status(201).json({
           success: true,
-          message: `please check your email:- ${seller.email} to activate your shop!`,
+          message: `${seller.name}, please check your email:- ${seller.email} to activate your shop!`,
         });
       } catch (error) {
         return next(new ErrorHandler(error.message, 500));

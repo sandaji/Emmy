@@ -1,23 +1,23 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import styles from "../../styles/styles";
-import { categoriesData, productData } from "../../static/data";
 import {
   AiOutlineHeart,
   AiOutlineSearch,
   AiOutlineShoppingCart,
 } from "react-icons/ai";
-import { IoIosArrowDown, IoIosArrowForward } from "react-icons/io";
+import { IoIosArrowForward } from "react-icons/io";
 import { BiMenuAltLeft } from "react-icons/bi";
 import { CgProfile } from "react-icons/cg";
 import DropDown from "./DropDown";
 import Navbar from "./Navbar";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import Cart from "../cart/Cart";
 import Wishlist from "../Wishlist/Wishlist";
 import { RxCross1 } from "react-icons/rx";
 
 const Header = ({ activeHeading }) => {
+  const dispatch = useDispatch();
   const { isAuthenticated, user } = useSelector((state) => state.user);
   const { isSeller } = useSelector((state) => state.seller);
   const { wishlist } = useSelector((state) => state.wishlist);
@@ -43,13 +43,15 @@ const Header = ({ activeHeading }) => {
     setSearchData(filteredProducts);
   };
 
-  window.addEventListener("scroll", () => {
-    if (window.scrollY > 70) {
-      setActive(true);
-    } else {
-      setActive(false);
-    }
-  });
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 70) {
+        setActive(true);
+      } else {
+        setActive(false);
+      }
+    });
+  }, []);
 
   return (
     <>

@@ -7,7 +7,7 @@ export const getAllOrdersOfUser = (userId) => async (dispatch) => {
       type: "getAllOrdersUserRequest",
     });
 
-    const { data } = await axios.get(`/order/get-all-orders/${userId}`);
+    const { data } = await axios.get(`api/order/get-all-orders/${userId}`);
 
     dispatch({
       type: "getAllOrdersUserSuccess",
@@ -28,7 +28,7 @@ export const getAllOrdersOfShop = (shopId) => async (dispatch) => {
       type: "getAllOrdersShopRequest",
     });
 
-    const { data } = await axios.get(`/order/get-seller-all-orders/${shopId}`);
+    const { data } = await axios.get(`api/order/get-seller-all-orders/${shopId}`);
 
     dispatch({
       type: "getAllOrdersShopSuccess",
@@ -49,7 +49,7 @@ export const getAllOrdersOfAdmin = () => async (dispatch) => {
       type: "adminAllOrdersRequest",
     });
 
-    const { data } = await axios.get(`/order/admin-all-orders`, {
+    const { data } = await axios.get(`api/order/admin-all-orders`, {
       withCredentials: true,
     });
 

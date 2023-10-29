@@ -1,3 +1,4 @@
+import React from "react"
 // navigation Data
 export const navItems = [
     {
@@ -194,62 +195,63 @@ export const navItems = [
       title: "Computers and Laptops",
       subTitle: "",
       image_Url:
-        "https://cdn.shopify.com/s/files/1/1706/9177/products/NEWAppleMacbookProwithM1ProChip14InchLaptop2021ModelMKGQ3LL_A_16GB_1TBSSD_custommacbd.jpg?v=1659592838",
+        "https://images.unsplash.com/photo-1566647387313-9fda80664848?auto=format&fit=crop&q=60&w=500&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGNvbXB1dGVyc3xlbnwwfHwwfHx8MA%3D%3D",
     },
     {
       id: 2,
       title: "cosmetics and body care",
       subTitle: "",
       image_Url:
-        "https://indian-retailer.s3.ap-south-1.amazonaws.com/s3fs-public/2021-07/kosme1.png",
+        "https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&q=60&w=500&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8Y29zbWV0aWNzfGVufDB8fDB8fHww",
     },
     {
       id: 3,
       title: "Accesories",
       subTitle: "",
       image_Url:
-        "https://img.freepik.com/free-vector/ordering-goods-online-internet-store-online-shopping-niche-e-commerce-website-mother-buying-babies-clothes-footwear-toys-infant-accessories_335657-2345.jpg?w=2000",
+        "https://images.unsplash.com/photo-1624823183493-ed5832f48f18?auto=format&fit=crop&q=60&w=500&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGFjY2Vzc29yaWVzfGVufDB8fDB8fHww",
     },
     {
       id: 4,
       title: "Cloths",
       subTitle: "",
       image_Url:
-        "https://www.shift4shop.com/2015/images/industries/clothing/clothing-apparel.png",
+        "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?auto=format&fit=crop&q=60&w=500&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8Y2xvdGhlc3xlbnwwfHwwfHx8MA%3D%3D",
     },
     {
       id: 5,
       title: "Shoes",
       subTitle: "",
       image_Url:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvBQPQMVNRd6TtDkGs2dCri0Y-rxKkFOiEWw&usqp=CAU",
+        "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&q=60&w=500&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fHNob2V8ZW58MHx8MHx8fDA%3D",
     },
     {
       id: 6,
       title: "Gifts",
       subTitle: "",
       image_Url:
-        "https://securecdn.pymnts.com/wp-content/uploads/2014/11/Gifts-Photo-700x489.jpg",
+        "https://images.unsplash.com/photo-1521478706270-f2e33c203d95?auto=format&fit=crop&q=60&w=500&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGdpZnRzfGVufDB8fDB8fHww",
     },
     {
       id: 7,
       title: "Pet Care",
       subTitle: "",
-      image_Url: "https://cdn.openpr.com/T/c/Tc15444071_g.jpg",
+      image_Url:
+        "https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&fit=crop&q=60&w=500&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cGV0c3xlbnwwfHwwfHx8MA%3D%3D",
     },
     {
       id: 8,
       title: "Mobile and Tablets",
       subTitle: "",
       image_Url:
-        "https://st-troy.mncdn.com/mnresize/1500/1500/Content/media/ProductImg/original/mpwp3tua-apple-iphone-14-256gb-mavi-mpwp3tua-637986832343472449.jpg",
+        "https://plus.unsplash.com/premium_photo-1681849847324-f2e82ccb2b9f?auto=format&fit=crop&q=60&w=500&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8bW9iaWxlJTIwcGhvbmV8ZW58MHx8MHx8fDA%3D",
     },
     {
       id: 9,
       title: "Music and Gaming",
       subTitle: "",
       image_Url:
-        "https://static.vecteezy.com/system/resources/previews/011/996/555/original/3d-black-headphone-illustration-ecommerce-icon-png.png",
+        "https://images.unsplash.com/photo-1668554245893-2430d0077217?auto=format&fit=crop&q=60&w=500&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Z2FtaW5nfGVufDB8fDB8fHww",
     },
     {
       id: 10,

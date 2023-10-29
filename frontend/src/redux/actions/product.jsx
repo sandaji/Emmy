@@ -20,7 +20,7 @@ export const createProduct =
       });
 
       const { data } = await axios.post(
-        `/product/create-product`,
+        `api/product/create-product`,
         name,
         description,
         category,
@@ -50,7 +50,7 @@ export const getAllProductsShop = (id) => async (dispatch) => {
       type: "getAllProductsShopRequest",
     });
 
-    const { data } = await axios.get(`/product/get-all-products-shop/${id}`);
+    const { data } = await axios.get(`api/product/get-all-products-shop/${id}`);
     dispatch({
       type: "getAllProductsShopSuccess",
       payload: data.products,
@@ -70,7 +70,7 @@ export const deleteProduct = (id) => async (dispatch) => {
       type: "deleteProductRequest",
     });
 
-    const { data } = await axios.delete(`/product/delete-shop-product/${id}`, {
+    const { data } = await axios.delete(`api/product/delete-shop-product/${id}`, {
       withCredentials: true,
     });
 
@@ -93,7 +93,7 @@ export const getAllProducts = () => async (dispatch) => {
       type: "getAllProductsRequest",
     });
 
-    const { data } = await axios.get(`/product/get-all-products`);
+    const { data } = await axios.get(`api/product/get-all-products`);
     dispatch({
       type: "getAllProductsSuccess",
       payload: data.products,

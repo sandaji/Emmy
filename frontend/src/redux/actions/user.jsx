@@ -6,7 +6,7 @@ export const loadUser = () => async (dispatch) => {
     dispatch({
       type: "LoadUserRequest",
     });
-    const { data } = await axios.get(`/user/getuser`, {
+    const { data } = await axios.get(`api/user/getuser`, {
       withCredentials: true,
     });
     dispatch({
@@ -27,7 +27,7 @@ export const loadSeller = () => async (dispatch) => {
     dispatch({
       type: "LoadSellerRequest",
     });
-    const { data } = await axios.get(`/shop/getSeller`, {
+    const { data } = await axios.get(`api/shop/getSeller`, {
       withCredentials: true,
     });
     dispatch({
@@ -51,7 +51,7 @@ export const updateUserInformation =
       });
 
       const { data } = await axios.put(
-        `/user/update-user-info`,
+        `api/user/update-user-info`,
         {
           email,
           password,
