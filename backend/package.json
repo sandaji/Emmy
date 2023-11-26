@@ -1,5 +1,5 @@
 {
-  "name": "e-shop-tutorial",
+  "name": "backend",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -11,7 +11,7 @@
     "dev": "nodemon server.js",
     "start": "node server.js"
   },
-  "author": "shahriar Sajeeb",
+  "author": "ijamy vincent",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.1.0",

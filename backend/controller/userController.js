@@ -4,52 +4,46 @@ import jwt from "jsonwebtoken";
 import sendMail from "../utils/sendMail.js";
 import sendToken from "../utils/jwtToken.js";
 import ErrorHandler from "../utils/ErrorHandler.js";
+import { createActivationToken } from "../utils/token.js";
 
 // Create user controller
 export const createUser = async (req, res, next) => {
   try {
     const { name, email, password, avatar } = req.body;
-    const userEmail = await User.findOne({ email });
 
+    // Check if the user already exists
+    const userEmail = await User.findOne({ email });
     if (userEmail) {
       return next(new ErrorHandler("User already exists", 400));
     }
 
-    const myCloud = await cloudinary.v2.uploader.upload(avatar, {
-      folder: "avatars",
-    });
-
-    const user = {
-      name: name,
-      email: email,
-      password: password,
-      avatar: {
+    // Upload avatar to cloudinary (assuming it's optional)
+    let avatarData = null;
+    if (avatar) {
+      const myCloud = await cloudinary.v2.uploader.upload(avatar, {
+        folder: "avatars",
+      });
+      avatarData = {
         public_id: myCloud.public_id,
         url: myCloud.secure_url,
-      },
-    };
-
-    const activationToken = createActivationToken(user);
-
-    const activationUrl = `http://localhost:5173/${activationToken}`;
-
-    try {
-      await sendMail({
-        email: user.email,
-        subject: "Activate your account",
-        message: `Hello ${user.name}, please click on the link to activate your account: ${activationUrl}`,
-      });
-      res.status(201).json({
-        success: true,
-        message: `Please check your email: ${user.email} to activate your account!`,
-      });
-    } catch (error) {
-      return next(new ErrorHandler(error.message, 500));
+      };
     }
+
+    // Create the user without activation
+    const user = await User.create({
+      name,
+      email,
+      password,
+      avatar: avatarData,
+    });
+
+    // Send a token (e.g., JWT) for immediate login after registration
+    sendToken(user, 201, res);
   } catch (error) {
-    return next(new ErrorHandler(error.message, 400));
+    return next(new ErrorHandler(error.message, 500));
   }
 };
+
 
 // Activate user controller
 export const activateUser = async (req, res, next) => {

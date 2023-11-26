@@ -17,17 +17,18 @@ import message from "./controller/message.js";
 import withdraw from "./controller/withdraw.js";
 import userRoute from "./routes/userRoute.js";
 import errorHandler from "./middleware/error.js";
+import seedRouter from "./routes/seedRouter.js";
 
 const app = express();
 dotenv.config();
 
 // Enable CORS
-const corsOptions = {
-  origin: "http://localhost:5173", 
-  credentials: true,
-};
-
-app.use(cors(corsOptions));
+app.use(
+  cors({
+    origin: "http://localhost:5173",
+    credentials: true,
+  })
+);
 
 app.use(errorHandler);
 app.use(express.json());
@@ -44,6 +45,10 @@ process.on("uncaughtException", (err) => {
   console.log(`shutting down the server for handling uncaught exception`);
 });
 
+app.get("/", (req, res) => {
+  res.send("API is running...");
+});
+
 app.use("/api/user", userRoute);
 app.use("/api/conversation", conversation);
 app.use("/api/message", message);
@@ -54,6 +59,7 @@ app.use("/api/event", event);
 app.use("/api/coupon", coupon);
 app.use("/api/payment", payment);
 app.use("/api/withdraw", withdraw);
+app.use("/api/seeder", seedRouter);
 
 // it's for ErrorHandling
 app.use(ErrorHandler);

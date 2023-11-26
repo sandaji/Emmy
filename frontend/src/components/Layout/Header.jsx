@@ -15,6 +15,7 @@ import { useSelector, useDispatch } from "react-redux";
 import Cart from "../cart/Cart";
 import Wishlist from "../Wishlist/Wishlist";
 import { RxCross1 } from "react-icons/rx";
+import  logo  from "../../assets/logo1.jpeg";
 
 const Header = ({ activeHeading }) => {
   const dispatch = useDispatch();
@@ -56,10 +57,10 @@ const Header = ({ activeHeading }) => {
   return (
     <>
       <div className={`${styles.section}`}>
-        <div className="hidden 800px:h-[50px] 800px:my-[20px] 800px:flex items-center justify-between">
+        <div className="hidden 800px:h-[50px] 800px:my-[20px] h-[1rem] 800px:flex items-center justify-between">
           <div>
             <Link to="/">
-              <h1 className="text-3xl logo">Emmy collections</h1>
+              <img src={logo} alt="logo" className=" rounded h-20 w-30" />
             </Link>
           </div>
           {/* search box */}
@@ -220,11 +221,7 @@ const Header = ({ activeHeading }) => {
           </div>
           <div>
             <Link to="/">
-              <img
-                src="https://shopo.quomodothemes.website/assets/images/logo.svg"
-                alt=""
-                className="mt-3 cursor-pointer"
-              />
+              <img src={logo} alt="" className="mt-3 cursor-pointer" />
             </Link>
           </div>
           <div>
@@ -258,7 +255,7 @@ const Header = ({ activeHeading }) => {
                     onClick={() => setOpenWishlist(true) || setOpen(false)}
                   >
                     <AiOutlineHeart size={30} className="mt-5 ml-3" />
-                    <span class="absolute right-0 top-0 rounded-full bg-[#3bc177] w-4 h-4 top right p-0 m-0 text-white font-mono text-[12px]  leading-tight text-center">
+                    <span className="absolute right-0 top-0 rounded-full bg-[#3bc177] w-4 h-4 top right p-0 m-0 text-white font-mono text-[12px]  leading-tight text-center">
                       {wishlist && wishlist.length}
                     </span>
                   </div>

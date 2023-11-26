@@ -60,14 +60,14 @@ const Footer = () => {
 
         <ul className="text-center sm:text-start">
           <h1 className="mb-1 font-semibold">Company</h1>
-          {footerProductLinks.map((link, index) => (
+          {footerProductLinks.map((plink, index ) => (
             <li key={index}>
               <Link
                 className="text-gray-400 hover:text-teal-400 duration-300
                    text-sm cursor-pointer leading-6"
-                to={link.link}
+                to={plink.link}
               >
-                {link.name}
+                {plink.name}
               </Link>
             </li>
           ))}
@@ -75,14 +75,14 @@ const Footer = () => {
 
         <ul className="text-center sm:text-start">
           <h1 className="mb-1 font-semibold">Shop</h1>
-          {footercompanyLinks.map((link, index) => (
+          {footercompanyLinks.map((clink, index) => (
             <li key={index}>
               <Link
                 className="text-gray-400 hover:text-teal-400 duration-300
                    text-sm cursor-pointer leading-6"
-                to={link.link}
+                to={clink.link}
               >
-                {link.name}
+                {clink.name}
               </Link>
             </li>
           ))}
@@ -90,14 +90,14 @@ const Footer = () => {
 
         <ul className="text-center sm:text-start">
           <h1 className="mb-1 font-semibold">Support</h1>
-          {footerSupportLinks.map((link, index) => (
+          {footerSupportLinks.map((slink, index) => (
             <li key={index}>
               <Link
                 className="text-gray-400 hover:text-teal-400 duration-300
                    text-sm cursor-pointer leading-6"
-                to={link.link}
+                to={slink.link}
               >
-                {link.name}
+                {slink.name}
               </Link>
             </li>
           ))}

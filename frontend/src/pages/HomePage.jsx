@@ -11,6 +11,7 @@ import Footer from "../components/Layout/Footer";
 const HomePage = () => {
   return (
     <div>
+   
       <Header activeHeading={1} />
       <Hero />
       <Categories />

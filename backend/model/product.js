@@ -1,9 +1,9 @@
 import mongoose from "mongoose";
 
 const productSchema = mongoose.Schema({
-  name: {
+  title: {
     type: String,
-    required: [true, "Please enter your product name!"],
+    required: [true, "Please enter your product title!"],
   },
   description: {
     type: String,
@@ -39,7 +39,7 @@ const productSchema = mongoose.Schema({
       },
     },
   ],
-  reviews: [
+  numReviews: [
     {
       user: {
         type: Object,
@@ -59,7 +59,7 @@ const productSchema = mongoose.Schema({
       },
     },
   ],
-  ratings: {
+  rating: {
     type: Number,
   },
   shopId: {

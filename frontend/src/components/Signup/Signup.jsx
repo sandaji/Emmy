@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import React, { useState} from "react";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import styles from "../../styles/styles";
 import { Link } from "react-router-dom";
@@ -25,28 +25,44 @@ const Singup = () => {
     reader.readAsDataURL(e.target.files[0]);
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+const handleSubmit = async (e) => {
+  e.preventDefault();
 
-    axios
-      .post("api/user", { name, email, password, avatar })
-      .then((res) => {
-        if (res && res.data) {
-          toast.success(res.data.message);
-          setName("");
-          setEmail("");
-          setPassword("");
-          setAvatar();
-        } else {
-          // Handle the case where response or response.data is undefined
-          console.error("Invalid response:", res);
-        }
-      })
-      .catch((error) => {
-        toast.error(error.response.data.message);
-        console.log({ name, email, password, avatar });
-      });
+  // Form validation
+  if (!name || !email || !password || !avatar) {
+    toast.error("Please fill in all fields");
+    return;
   }
+
+  // Loading state
+  // Set loading state to true and disable the submit button
+
+  try {
+    const response = await axios.post("api/user/create-user", {
+      name,
+      email,
+      password,
+      avatar,
+    });
+
+    // Reset form fields and avatar state on success
+    setName("");
+    setEmail("");
+    setPassword("");
+    setAvatar(null);
+
+    // Display success message
+    toast.success(response.data.message);
+
+    // Reset loading state
+  } catch (error) {
+    // Display error message
+    toast.error(error.response?.data?.message || "An error occurred");
+
+    // Reset loading state
+  }
+};
+
 
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">

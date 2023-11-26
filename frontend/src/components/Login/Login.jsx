@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import React, { useState } from "react";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import styles from "../../styles/styles";
 import { Link, useNavigate } from "react-router-dom";
@@ -14,9 +14,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    await axios
-      .post(
-        `/user/login-user`,
+    axios.post(`api/user/login-user`,
         {
           email,
           password,
